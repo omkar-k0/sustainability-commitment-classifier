@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sustainability Commitment Classifier</title>
+<style>
+  :root {
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #0b0d10;
+    color: #f2f4f6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    padding: 40px 24px 60px;
+  }
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  header h1 {
+    font-size: clamp(28px, 4vw, 44px);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  header p.sub {
+    color: #9aa4ad;
+    font-size: clamp(15px, 2vw, 19px);
+    margin: 0 0 36px;
+    max-width: 760px;
+    line-height: 1.5;
+  }
+  .company {
+    background: #14181d;
+    border: 1px solid #ffffff14;
+    border-radius: 14px;
+    padding: 22px 24px 20px;
+    margin-bottom: 22px;
+  }
+  .company-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .company-head h2 {
+    font-size: clamp(22px, 3vw, 30px);
+    margin: 0;
+  }
+  .pct {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    color: #5fd3a6;
+  }
+  .pct-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #9aa4ad;
+    margin-left: 4px;
+  }
+  .bar-track {
+    width: 100%;
+    height: 16px;
+    background: #ffffff12;
+    border-radius: 8px;
+    margin-top: 14px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #5fd3a6, #3fb98a);
+    border-radius: 8px;
+  }
+  .counts {
+    color: #9aa4ad;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  table.examples {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+  }
+  table.examples td {
+    padding: 10px 0;
+    border-top: 1px solid #ffffff10;
+    vertical-align: top;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .tag-cell {
+    width: 118px;
+    padding-right: 14px;
+    white-space: nowrap;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .sentence-cell {
+    color: #f2f4f6;
+  }
+  footer {
+    margin-top: 30px;
+    color: #9aa4ad;
+    font-size: 13px;
+    border-top: 1px solid #ffffff14;
+    padding-top: 18px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Sustainability Commitment Classifier</h1>
+      <p class="sub">Five DAX-listed companies, ranked by what share of their environmental
+      commitments are checkable -- backed by a number and a target year -- versus vague.
+      Sentences below are pulled directly from each company's own sustainability report.</p>
+    </header>
+    
+    <section class="company">
+      <div class="company-head">
+        <h2>SAP</h2>
+        <div class="pct">17.5%<span class="pct-label"> quantified</span></div>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:17.5%;"></div>
+      </div>
+      <div class="counts">29 quantified &middot; 137 vague &middot; 166 total environmental commitments found</div>
+      <table class="examples">
+        <tbody>
+          
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#5fd3a622;color:#5fd3a6;border:1px solid #5fd3a666;">Quantified</span></td>
+          <td class="sentence-cell">This means diverting more than 90% of the electrical and electronic waste generated within our own operations from incineration and landfill by 2030.</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">Vintage The renewable electricity must be produced in the same year or the year preceding the reporting period to which it will be applied.</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">This mechanism aims to incentivize organizational units and employees to reduce air travel and choose more sustainable transportation options.</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="company">
+      <div class="company-head">
+        <h2>Bosch</h2>
+        <div class="pct">16.5%<span class="pct-label"> quantified</span></div>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:16.5%;"></div>
+      </div>
+      <div class="counts">21 quantified &middot; 106 vague &middot; 127 total environmental commitments found</div>
+      <table class="examples">
+        <tbody>
+          
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#5fd3a622;color:#5fd3a6;border:1px solid #5fd3a666;">Quantified</span></td>
+          <td class="sentence-cell">The challenge we are still facing is to mitigate future ence indirectly, such as suppliers’ success in reducing CO₂ emissions relating to the anticipated sales growth by 2030.</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">Saving 1.7 TWh through increased This corresponds to a goal achievement level of 67 percent (see the “Environment | Climate action” section).</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">Climate change will not wait business model, defective vehicle components such for us to get our act together, we must tackle it now.</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="company">
+      <div class="company-head">
+        <h2>Siemens</h2>
+        <div class="pct">14.8%<span class="pct-label"> quantified</span></div>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:14.8%;"></div>
+      </div>
+      <div class="counts">44 quantified &middot; 254 vague &middot; 298 total environmental commitments found</div>
+      <table class="examples">
+        <tbody>
+          
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#5fd3a622;color:#5fd3a6;border:1px solid #5fd3a666;">Quantified</span></td>
+          <td class="sentence-cell">Siemens is committed to owning only building assets that are Net Zero carbon in operation and occupying only assets that are Net Zero carbon in operation by 2030.</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">These measures enable us to reduce freshwater consumption by, among other things, utilizing treated water for landscaping and toilet flushing.</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">The respective targets are sites and to involve our suppliers, service providers, and detailed in the Environmental chapters that follow.</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="company">
+      <div class="company-head">
+        <h2>Henkel</h2>
+        <div class="pct">10.7%<span class="pct-label"> quantified</span></div>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:10.7%;"></div>
+      </div>
+      <div class="counts">52 quantified &middot; 432 vague &middot; 484 total environmental commitments found</div>
+      <table class="examples">
+        <tbody>
+          
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#5fd3a622;color:#5fd3a6;border:1px solid #5fd3a666;">Quantified</span></td>
+          <td class="sentence-cell">The extrapolation of the CO2 price was based on the World Energy Outlook of the IEA and its “Net Zero Emissions by 2050“ scenario.</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">Energy efficiency, use of renewable energy and other levers to mitigate climate change are mainly addressed in our Climate Transition Plan.</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">It also handles cross-departmental projects and continuously reviews the extent to which resource use and circular economy targets are met.</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    
+
+    <section class="company">
+      <div class="company-head">
+        <h2>BASF</h2>
+        <div class="pct">9.4%<span class="pct-label"> quantified</span></div>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:9.4%;"></div>
+      </div>
+      <div class="counts">46 quantified &middot; 441 vague &middot; 487 total environmental commitments found</div>
+      <table class="examples">
+        <tbody>
+          
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#5fd3a622;color:#5fd3a6;border:1px solid #5fd3a666;">Quantified</span></td>
+          <td class="sentence-cell">The GBA develops the tools for steering a sustainable and responsible circular economy for batteries – and aims to establish these by 2030.</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">Our goal is to not purchase cobalt from artisanal mines as long as responsible labor, social and environmental standards cannot be verified.</td>
+        </tr>
+        <tr>
+          <td class="tag-cell"><span class="tag" style="background:#e0a35c22;color:#e0a35c;border:1px solid #e0a35c66;">Vague</span></td>
+          <td class="sentence-cell">Growing electrification – including of our own plants – will considerably increase the need for energy from renewable sources going forward.</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    
+    <footer>
+      A commitment counts as <strong>quantified</strong> when the sentence contains both a
+      figure and a target year; otherwise it is <strong>vague</strong>. This is a rule-based
+      check for whether a commitment is checkable -- it does not verify the numbers, and it
+      is not a greenwashing detector. See README for method and known limitations.
+    </footer>
+  </div>
+</body>
+</html>
