@@ -145,8 +145,22 @@ def pick_report_examples(quantified, vague, n=3):
     return picks[:n]
 
 
+# Years and scope labels are not figures. Before 21 Nov 2026 the plain-integer branch of
+# NUMBER_RE matched the target year itself ("2030"), so every sentence with a target year
+# counted as having a number and "Quantified" meant only "names a year". They are now
+# removed before the number check.
+ANY_YEAR_RE = re.compile(r"\b(?:19[5-9]\d|20\d{2}|2100)\b")
+SCOPE_RE = re.compile(r"\bscopes?\s*[123](?:\s*(?:,|and|&|\+|/)\s*[123])*", re.IGNORECASE)
+
+
+def has_figure(sentence):
+    """A number that is not a year and not a scope label."""
+    stripped = SCOPE_RE.sub(" ", ANY_YEAR_RE.sub(" ", sentence))
+    return bool(NUMBER_RE.search(stripped))
+
+
 def classify(sentence):
-    has_number = bool(NUMBER_RE.search(sentence))
+    has_number = has_figure(sentence)
     has_year = bool(YEAR_RE.search(sentence))
     if has_number and has_year:
         return "Quantified"

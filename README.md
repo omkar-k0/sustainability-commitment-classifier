@@ -28,6 +28,37 @@ never whether the company is telling the truth.
   English but read a bit jumbled. The report favors more legible sentences for display, but
   some noise gets through.
 
+## Results
+
+Environmental commitment sentences per company, from the cached report text in `data/`.
+
+| Company | Commitments | Quantified | Share quantified |
+|---|---:|---:|---:|
+| Siemens | 298 | 34 | 11.4% |
+| BASF | 487 | 30 | 6.2% |
+| SAP | 166 | 18 | 10.8% |
+| Henkel | 484 | 22 | 4.5% |
+| Bosch | 127 | 16 | 12.6% |
+| **All five** | **1562** | **120** | **7.7%** |
+
+Reproduce: `python3 scripts/pipeline.py` (no PDFs needed). `pytest` checks these totals.
+
+### Correction, 21 Nov 2026
+
+Until this date the "has a number" check also matched the target year itself, so a sentence
+like "we will reduce emissions significantly by 2030" counted as quantified. In practice
+*Quantified* meant only *names a year*. Years and scope labels ("Scope 1 and 2") are now
+removed before the number check. Result: 120 of 1,562 commitments are quantified (7.7%),
+not 192 (12.3%). The 72 sentences that moved are all of the "by 2030, no figure" kind.
+Regression tests for these cases are in `tests/test_classify.py`.
+
+### Accuracy against hand labels: pending
+
+`scripts/label_sample.py` drew 100 sentences (stratified by company and prediction) into
+`eval/label_sample.csv`. Once the `label` column is filled with Q or V,
+`python3 scripts/score_labels.py` writes precision and recall to `eval/label_results.md`.
+Until then there is no accuracy number for this tool.
+
 ## How to run
 
 ```bash
