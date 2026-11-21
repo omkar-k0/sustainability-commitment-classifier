@@ -2,7 +2,7 @@
 
 Reads corporate sustainability report PDFs and splits environmental commitments into
 **quantified** (has a figure and a target year) vs. **vague**. Built as a booth demo for
-STATION Berlin, 16-17 Sept: five DAX companies, ranked by what share of their environmental
+STATION Berlin, 16-17 Sept: five large German companies (four DAX members plus Bosch), ranked by what share of their environmental
 commitments are checkable, with real sentences from their own reports.
 
 **What this tool does NOT claim:** it does not detect greenwashing, verify whether any
